@@ -95,12 +95,13 @@ char *replace_string(char *buffer, char *old_s, char *new_s, size_t fpos)
 }
 
 /**
- * get_occurence - function to count the number of occurence of a char
+ * get_occurrence - function to count the number of occurence of a char
  * @c: char to look for
  * @str: string to look in
  * Return: size_t times
  */
-size_t get_occurence(char c, char *str)
+
+size_t get_occurrence(char c, char *str)
 {
 	size_t len = 1, j;
 

@@ -6,9 +6,10 @@
  * Return: none
  */
 
-void exit_function(struct alx_cmd *_cmd)
+void exit_function(alx_cmd *_cmd)
 {
 	_cmd->status_code = EXIT_STATUS_CODE;
+
 	if (_cmd->args[1] != NULL)
 		_cmd->exit_code = atoi(_cmd->args[1]);
 }
@@ -19,7 +20,7 @@ void exit_function(struct alx_cmd *_cmd)
  * Return: nothing
  */
 
-void clear_screen(struct alx_cmd *_cmd)
+void clear_screen(alx_cmd *_cmd)
 {
 	(void)_cmd;
 	CLEAR_SCREEN();
@@ -31,7 +32,7 @@ void clear_screen(struct alx_cmd *_cmd)
  * Return: nothing
  */
 
-void direc_change(struct alx_cmd *_cmd)
+void direc_change(alx_cmd *_cmd)
 {
 	char *new_dir, *old_dir, *curr_dir;
 	struct stat _stat;
@@ -73,7 +74,7 @@ void direc_change(struct alx_cmd *_cmd)
  * @_cmd: main data struct
  * Return: none - void function
  */
-void environ(struct alx_cmd *_cmd)
+void environ(alx_cmd *_cmd)
 {
 	unsigned int j = 0;
 

@@ -5,7 +5,7 @@
  * Return: Nothing. 
  */
 
-void initialize(struct command *_cmd, char **env_list)
+void initialize(alx_cmd *_cmd, char **envir_list)
 {
 	_cmd->input = NULL;
 	_cmd->lines_counter = 0;

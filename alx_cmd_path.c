@@ -3,8 +3,9 @@
 /**
  * alx_cmd_path - Get the full path of a system command.
  * @_cmd: Main data struct.
- * Return: SYS_CMD_FOUND_CODE if succeeded, SYS_CMD_NOTFOUND_CODE if failed.
+ * Return: SYS_CMD_FOUND_CODE if succeeded
  */
+
 int alx_cmd_path(alx_cmd *_cmd)
 {
     struct stat _stat;
@@ -16,7 +17,7 @@ int alx_cmd_path(alx_cmd *_cmd)
     if (f_stat == 0)
     {
         _cmd->cmd_path = concat_string(2, _cmd->args[0], "");
-        return ALX_SYS_CMD_FOUND_CODE;
+        return SYS_CMD_FOUND_CODE;
     }
 
     dup_path = strdup(path);
@@ -31,11 +32,11 @@ int alx_cmd_path(alx_cmd *_cmd)
             _cmd->cmd_path = conc_path;
             free(parsed_path);
             free(dup_path);
-            return ALX_SYS_CMD_FOUND_CODE;
+            return SYS_CMD_FOUND_CODE;
         }
         free(conc_path);
         i++;
     }
     free(dup_path);
-    return ALX_SYS_CMD_NOTFOUND_CODE;
+    return SYS_CMD_NOTFOUND_CODE;
 }

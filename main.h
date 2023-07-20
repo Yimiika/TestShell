@@ -72,14 +72,17 @@ void exit_function(alx_cmd *_cmd);
 void clear_prompt(alx_cmd *_cmd);
 char *replace_string(char *buffer, char *old_s, char *new_s, size_t fpos);
 char *concat_string(size_t num_of_buffers, const char *const format, ...);
-size_t get_occurence(char c, char *str)
+size_t get_occurrence(char c, char *str);
 ssize_t find_string(const char *str, const char *sub, size_t n);
 void environ(alx_cmd *_cmd);
 void direc_change(alx_cmd *_cmd);
-int alx_cmd_path(alx_cmd *_cmd);
+int alx_cmd_path(struct shell_command *alx_cmd);
 void initialize(alx_cmd *_cmd, char **envir_list);
 void set_shell_env(const char *variable, const char *value, int overwrite);
 void unset_shell_env(const char *variable);
 char *get_shell_env(char *local_cmd);
+int check_return_codes(struct shell_command *alx_cmd, char *original, char *user_inpt);
+char *string_converter(int str_num);
+void signal_ctrl(int num);
 
 #endif
