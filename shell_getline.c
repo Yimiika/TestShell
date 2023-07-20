@@ -33,7 +33,7 @@ int shell_getline(char **reserve, size_t *reserve_size, FILE *my_file)
 	while (num < char_count - 1)
 	{
 		reserve[0][num] = buff[num];
-		num++
+		num++;
 	}
 	return (char_count - 1);
 }

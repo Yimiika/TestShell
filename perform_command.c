@@ -27,7 +27,7 @@ void perform_command(struct shell_command *alx_cmd)
 		else if (pid == 0)
 		{
 			execve(alx_cmd->cmd_path, alx_cmd->input_line,
-					alx_cmd->env_var);
+					alx_cmd->env_vars);
 			free(alx_cmd->cmd_path);
 		}
 		else
