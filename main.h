@@ -94,4 +94,6 @@ void (*functions_cmd(const char *key))(alx_cmd *_cmd);
 
 int shell_puts(const char *e);
 void shell_putchar(char r);
+int shell_atoi(const char *e);
+
 #endif
