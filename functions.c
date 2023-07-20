@@ -8,7 +8,7 @@
 
 void exit_function(alx_cmd *_cmd)
 {
-	_cmd->status_code = EXIT_STATUS_CODE;
+	_cmd->status = EXIT_STATUS_CODE;
 
 	if (_cmd->args[1] != NULL)
 		_cmd->exit_code = atoi(_cmd->args[1]);
@@ -38,12 +38,12 @@ void direc_change(alx_cmd *_cmd)
 	struct stat _stat;
 	int free_mem = 0;
 
-	old_dir = _getenv("OLDPWD");
-	curr_dir = _getenv("PWD");
+	old_dir = get_shell_env("OLDPWD");
+	curr_dir = get_shell_env("PWD");
 
 	if (_cmd->args[1] == NULL)
 	{
-		new_dir = _getenv("HOME");
+		new_dir = get_shell_env("HOME");
 	}
 	else if (strncmp(_cmd->args[1], "-", 1) == 0)
 	{
@@ -52,18 +52,18 @@ void direc_change(alx_cmd *_cmd)
 	}
 	else
 	{
-		new_dir = get_dir_pathname(_cmd->args[1], curr_dir);
+		new_dir = pathname_retrieved(_cmd->args[1], curr_dir);
 		free_mem = 1;
 	}
 
 	if (stat(new_dir, &_stat) == 0 && S_ISDIR(_stat.st_mode))
 	{
-		_setenv("OLDPWD", curr_dir, 1);
+		set_shell_env("OLDPWD", curr_dir, 1);
 		chdir(new_dir);
-		_setenv("PWD", new_dir, 1);
+		set_shell_env("PWD", new_dir, 1);
 	}
 	else
-		_cmd->status_code = DIR_NOTFOUND_CODE;
+		_cmd->status = DIR_NOTFOUND_CODE;
 
 	if (free_mem == 1)
 		free(new_dir);

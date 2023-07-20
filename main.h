@@ -1,5 +1,5 @@
-#ifndef SHELL_H
-#define SHELL_H
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdio.h>
 #include <stdarg.h>
@@ -84,5 +84,7 @@ char *get_shell_env(char *local_cmd);
 int check_return_codes(struct shell_command *alx_cmd, char *original, char *user_inpt);
 char *string_converter(int str_num);
 void signal_ctrl(int num);
+char **string_parse(char *str, char *del);
+void (*functions_cmd(const char *key))(alx_cmd *_cmd);
 
 #endif

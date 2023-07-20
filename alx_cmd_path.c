@@ -21,7 +21,7 @@ int alx_cmd_path(alx_cmd *_cmd)
     }
 
     dup_path = strdup(path);
-    parsed_path = parse_str(dup_path, ":\n");
+    parsed_path = string_parse(dup_path, ":\n");
     /* check if file exists pre appending path */
     while (path[i])
     {
