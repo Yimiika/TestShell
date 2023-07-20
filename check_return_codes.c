@@ -53,6 +53,6 @@ int check_return_codes(struct shell_command *alx_cmd, char *original,
 		default:
 			break;
 	}
-	free(alx_cmd->args);
+	free(alx_cmd->input_line);
 	return (update);
 }

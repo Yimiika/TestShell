@@ -11,8 +11,7 @@ void perform_command(struct shell_command *alx_cmd)
 	pid_t pid;
 	int mode = -1;
 
-	if (alx_cmd->input_line == NULL ||
-			alx_cmd->input_line[0] == NULL)
+	if (alx_cmd->args == NULL || alx_cmd->args[0] == NULL)
 		return;
 	mode = alx_cmd_path(alx_cmd);
 	if (mode == SYS_CMD_FOUND_CODE)
@@ -26,7 +25,7 @@ void perform_command(struct shell_command *alx_cmd)
 		}
 		else if (pid == 0)
 		{
-			execve(alx_cmd->cmd_path, alx_cmd->input_line,
+			execve(alx_cmd->cmd_path, alx_cmd->args,
 					alx_cmd->env_vars);
 			free(alx_cmd->cmd_path);
 		}

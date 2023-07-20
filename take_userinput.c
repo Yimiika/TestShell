@@ -13,8 +13,8 @@ void take_userinput(struct shell_command *alx_cmd)
 	ssize_t outcome;
 
 	alx_cmd->line_counter++;
-	alx_cmd->args = NULL;
-	outcome = shell_getline(&(alx_cmd->args), &reserve_size, stdin);
+	alx_cmd->input_line = NULL;
+	outcome = shell_getline(&(alx_cmd->input_line), &reserve_size, stdin);
 
 	if (outcome == EOF)
 	{

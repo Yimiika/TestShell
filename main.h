@@ -87,4 +87,11 @@ void signal_ctrl(int num);
 char **string_parse(char *str, char *del);
 void (*functions_cmd(const char *key))(alx_cmd *_cmd);
 
+
+
+
+/* custom tools */
+
+int shell_puts(const char *e);
+void shell_putchar(char r);
 #endif

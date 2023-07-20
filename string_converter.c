@@ -23,7 +23,7 @@ char *string_converter(int str_num)
 	s--;
 	while (str_num > 0)
 	{
-		*s = str_num % 10 + '0');
+		*s = str_num % 10 + '0';
 		str_num /= 10;
 		s--;
 	}
