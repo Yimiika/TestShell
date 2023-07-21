@@ -95,11 +95,14 @@ char *shell_strdup(const char *e)
  * Return: the result
  */
 
-size_t shell_strlen(const char *e)
-{
-	size_t length = 0;
+size_t shell_strlen(const char *e) {
+    if (e == NULL) {
+        return 0;
+    }
 
-	while (e[length] != '\0')
-		length++;
-	return (length);
+    size_t length = 0;
+    while (e[length] != '\0') {
+        length++;
+    }
+    return length;
 }
