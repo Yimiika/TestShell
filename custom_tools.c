@@ -62,3 +62,44 @@ int shell_atoi(const char *e)
 	}
 	return (a * y);
 }
+
+
+/**
+ * shell_strdup - this is the function
+ * Description: this function is used to duplicate strings
+ * @e: the argument passed into the function
+ * Return: the result
+ */
+
+char *shell_strdup(const char *e)
+{
+	size_t len;
+	char *dup;
+
+	if (e == NULL)
+		return (NULL);
+	len = shell_strlen(e);
+	dup = (char*)malloc((len + 1) * sizeof(char));
+
+	if (dup == NULL)
+		return (NULL);
+	shell_strcpy(dup, e);
+	return (dup);
+}
+
+
+/**
+ * shell_strlen - this is the function
+ * Description: this is used to get the length of a string
+ * @e: the argument passed into the function
+ * Return: the result
+ */
+
+size_t shell_strlen(const char *e)
+{
+	size_t length = 0;
+
+	while (e[length] != '\0')
+		length++;
+	return (length);
+}

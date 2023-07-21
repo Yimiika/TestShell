@@ -59,26 +59,26 @@ typedef struct shell_command {
  */
 typedef struct shell_builtin_command {
     char *key;
-    void (*function)(struct shell_command *); // Update the function pointer type
+    void (*function)(struct shell_command *); /* Update the function pointer type */
 } alx_builtins;
 
 
-void load_alxshell(alx_cmd *_cmd);
+void load_alxshell(struct shell_command *alx_cmd);
 int shell_getline(char **buff, size_t *size, FILE *file);
 void alx_prompt(void);
-void perform_command(alx_cmd *_cmd);
+void perform_command(struct shell_command *alx_cmd);
 char *pathname_retrieved(char *target_dir, char *current_dir);
-void take_userinput(alx_cmd *_cmd);
-void exit_function(alx_cmd *_cmd);
-void clear_prompt(alx_cmd *_cmd);
-char *replace_string(char *buffer, char *old_s, char *new_s, size_t fpos);
-char *concat_string(size_t num_of_buffers, const char *const format, ...);
-size_t get_occurrence(char c, char *str);
-ssize_t find_string(const char *str, const char *sub, size_t n);
-void environ(alx_cmd *_cmd);
-void direc_change(alx_cmd *_cmd);
+void take_userinput(struct shell_command *alx_cmd);
+void exit_function(struct shell_command *alx_cmd);
+void clear_prompt(struct shell_command *alx_cmd);
+char *replace_string(char *buff, char *s1, char *s2, size_t t);
+char *concat_string(size_t total_buffs, const char *const format, ...);
+size_t get_occurrence(char r, char *e);
+ssize_t find_string(const char *e, const char *substr, size_t w);
+void environ(struct shell_command *alx_cmd);
+void direc_change(struct shell_command *alx_cmd);
 int alx_cmd_path(struct shell_command *alx_cmd);
-void initialize(alx_cmd *_cmd, char **envir_list);
+void initialize(struct shell_command *alx_cmd, char **envir_list);
 void set_shell_env(const char *variable, const char *value, int overwrite);
 void unset_shell_env(const char *variable);
 char *get_shell_env(char *local_cmd);
@@ -86,8 +86,21 @@ int check_return_codes(struct shell_command *alx_cmd, char *original, char *user
 char *string_converter(int str_num);
 void signal_ctrl(int num);
 char **string_parse(char *str, char *del);
-void (*functions_cmd(const char *key))(alx_cmd *_cmd);
+void (*functions_cmd(const char *my_key))(struct shell_command *alx_cmd);
 void set_builtin_env(struct shell_command *alx_cmd);
 void unset_builtin_env(struct shell_command *alx_cmd);
+
+
+
+/* custom tools */
+int shell_puts(const char *e);
+void shell_putchar(char r);
+int shell_atoi(const char *e);
+char *shell_strdup(const char *e);
+size_t shell_strlen(const char *e);
+char *shell_strcpy(char *a, const char *b);
+int shell_strncmp(const char *first_string, const char *second_string,
+		size_t i);
+void *shell_memset(void *ptr, int rep, size_t byt_num);
 
 #endif
