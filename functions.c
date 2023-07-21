@@ -15,15 +15,15 @@ void exit_function(alx_cmd *_cmd)
 }
 
 /**
- * clear_screen - function to clear the screen
+ * clear_prompt - function to clear the prompt
  * @_cmd: main data struct
  * Return: nothing
  */
 
-void clear_screen(alx_cmd *_cmd)
+void clear_prompt(alx_cmd *_cmd)
 {
 	(void)_cmd;
-	CLEAR_SCREEN();
+	CLEAR_PROMPT();
 }
 
 /**

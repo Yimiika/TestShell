@@ -13,7 +13,7 @@
 #include <sys/stat.h>
 #include <errno.h>
 
-#define CLEAR_SCREEN() write(STDOUT_FILENO, " \033[1;1H\033[2J", 12)
+#define CLEAR_PROMPT() write(STDOUT_FILENO, " \033[1;1H\033[2J", 12)
 #define MAX_COMMAND_SIZE 1024
 #define DEBUG_MODE_ENABLED 1
 #define BASE_STATUS_CODE 0
@@ -86,14 +86,5 @@ char *string_converter(int str_num);
 void signal_ctrl(int num);
 char **string_parse(char *str, char *del);
 void (*functions_cmd(const char *key))(alx_cmd *_cmd);
-
-
-
-
-/* custom tools */
-
-int shell_puts(const char *e);
-void shell_putchar(char r);
-int shell_atoi(const char *e);
 
 #endif

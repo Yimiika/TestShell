@@ -114,13 +114,13 @@ size_t get_occurrence(char c, char *str)
 }
 
 /**
- * find_subnstr - finds the first occurrence of a substring in a string
+ * find_string - finds the substring in a string
  * @str: string to look in
  * @sub: substring to look for
  * @n: number of chars to check
  * Return: position of char
  */
-ssize_t find_subnstr(const char *str, const char *sub, size_t n)
+ssize_t find_string(const char *str, const char *sub, size_t n)
 {
 	ssize_t post = -1;
 	size_t count = 0, i, j;
