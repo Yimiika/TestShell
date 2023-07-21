@@ -28,6 +28,7 @@ void unset_shell_env(const char *variable)
     }
 }
 
+
 /**
  * get_shell_env - Gets the value of an environment variable.
  * @local_cmd: The name of the environment variable to get.

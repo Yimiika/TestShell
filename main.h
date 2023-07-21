@@ -59,8 +59,9 @@ typedef struct shell_command {
  */
 typedef struct shell_builtin_command {
     char *key;
-    void (*function)(alx_cmd *);
+    void (*function)(struct shell_command *); // Update the function pointer type
 } alx_builtins;
+
 
 void load_alxshell(alx_cmd *_cmd);
 int shell_getline(char **buff, size_t *size, FILE *file);
@@ -86,5 +87,7 @@ char *string_converter(int str_num);
 void signal_ctrl(int num);
 char **string_parse(char *str, char *del);
 void (*functions_cmd(const char *key))(alx_cmd *_cmd);
+void set_builtin_env(struct shell_command *alx_cmd);
+void unset_builtin_env(struct shell_command *alx_cmd);
 
 #endif
